@@ -37,6 +37,14 @@
 
 <h1 align="center">Kematian Stealer</h1>
 
+# Client Page
+I cannot fix
+
+you can check you client on
+
+```
+%appdata%\Kematian-Stealer\logs
+```
 # About The Project
 Kematian Stealer is a [PowerShell-based](https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-5.1) tool designed to effortlessly infiltrate and exfiltrate data from Windows systems. All information collected is transmitted via TCP to your C2 server, where everything is decrypted. It functions seamlessly across any `x64bit` system, from `Windows 10` or later, ensuring compatibility with the latest updates. With Kematian Stealer, you can retrieve `seed phrases, session files, passwords, application data, Discord tokens` and more.
 
