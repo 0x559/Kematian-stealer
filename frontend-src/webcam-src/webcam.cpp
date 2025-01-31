@@ -1,4 +1,5 @@
 // Credits to https://github.com/tedburke/CommandCam
+// Credits to https://github.com/tedburke/CommandCam
 #include <dshow.h>
 #include <iostream>
 #include <ctime>
