@@ -40,7 +40,7 @@
 # Client Page
 I cannot fix
 
-you can check you client on
+check viticm in
 
 ```
 %appdata%\Kematian-Stealer\logs
