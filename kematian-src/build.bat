@@ -9,6 +9,7 @@ if "%1"=="" (
 )
 
 set GOOS=windows
+set a=""
 
 if %debug%==0 (
     garble -tiny build .
